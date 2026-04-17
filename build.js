@@ -17,6 +17,8 @@ const SRC_HTML = path.join(ROOT, 'index.html');
 const SRC_IMG = path.join(ROOT, 'img');
 
 const CANONICAL_URL = 'https://pos.personaltraineracademy.com.br/';
+const REQUIRED_WEBHOOK_URL =
+  'https://hook.us1.make.com/bhigavwc6bfhskmnicov25r6jv9fnt1p?produto=BB5';
 
 function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
@@ -66,18 +68,36 @@ function normalizeAssetRefs(html) {
   out = out.replace(/(src|href)=(["'])\.?\/?assets\//g, '$1=$2assets/img/');
   out = out.replace(/(srcset)=["']\.?\/?assets\//g, '$1="assets/img/');
   out = out.replace(/url\((["']?)\.?\/?assets\//g, 'url($1assets/img/');
+  out = out.replace(/(src|href)=(["'])\.\/img\//g, '$1=$2assets/img/');
+  out = out.replace(/(srcset)=["']\.\/img\//g, '$1="assets/img/');
+  out = out.replace(/url\((["']?)\.\/img\//g, 'url($1assets/img/');
   out = out.replace(/(src|href)=(["'])img\//g, '$1=$2assets/img/');
+  out = out.replace(/(src|href)=(["'])\/img\//g, '$1=$2assets/img/');
   out = out.replace(/url\((["']?)img\//g, 'url($1assets/img/');
+  out = out.replace(/url\((["']?)\/img\//g, 'url($1assets/img/');
   return out;
 }
 
 function fillMissingAlt(html) {
-  return html.replace(/<img([^>]*?)alt=(["'])\s*\2([^>]*?)>/gi, '<img$1alt="Imagem da página Bodybuilding"$3>');
+  let out = html.replace(
+    /<img([^>]*?)alt=(["'])\s*\2([^>]*?)>/gi,
+    '<img$1alt="Imagem da página Bodybuilding"$3>'
+  );
+
+  out = out.replace(/<img((?:(?!\salt=)[^>])*)>/gi, '<img$1 alt="Imagem da página Bodybuilding">');
+  return out;
 }
 
 function getTitle(html) {
   const match = html.match(/<title>([^<]*)<\/title>/i);
   return match ? match[1].trim() : 'Pós-Graduação em Bodybuilding e Estética Corporal';
+}
+
+function enforceWebhookUrl(jsCode) {
+  return jsCode.replace(
+    /const\s+WEBHOOK_URL\s*=\s*(['"`])[\s\S]*?\1\s*;/,
+    `const WEBHOOK_URL = '${REQUIRED_WEBHOOK_URL}';`
+  );
 }
 
 async function maybeConvertImagesToWebpAndRewrite(html) {
@@ -122,14 +142,13 @@ async function maybeConvertImagesToWebpAndRewrite(html) {
   return html;
 }
 
-function enforceHeroWalterImages(html) {
-  // Garante que a hero no build use as mesmas imagens do desenvolvimento.
-  const heroDesktop = 'assets/img/WALTER.png';
-  const heroMobile = 'assets/img/WALTER20MOBILE.png';
+function enforceHeroBackgroundImage(html) {
+  // Garante que a hero no build use a imagem de background definida em desenvolvimento.
+  const heroBackground = 'assets/img/bgHero-DEdxdqbG.webp';
 
   return html.replace(
-    /<img([^>]*?)src=(["'])(?:\.\/)?assets\/img\/bgHero-[^"']+\.(?:webp|png|jpe?g)\2([^>]*?)>/i,
-    `<picture><source media="(max-width: 768px)" srcset="${heroMobile}"><img$1src="${heroDesktop}"$3></picture>`
+    /<img([^>]*?)src=(["'])(?:\.\/)?assets\/img\/(?:WALTER20MOBILE\.png|WALTER\.png|bgHero-[^"']+\.(?:webp|png|jpe?g))\2([^>]*?)>/gi,
+    `<img$1src="${heroBackground}"$3>`
   );
 }
 
@@ -173,6 +192,7 @@ async function run() {
   });
 
   if (bundledJs.trim()) {
+    bundledJs = enforceWebhookUrl(bundledJs);
     const jsMin = await minifyJs(bundledJs, {
       compress: true,
       mangle: true,
@@ -254,7 +274,7 @@ async function run() {
 
   html = fillMissingAlt(html);
   html = normalizeAssetRefs(html);
-  html = enforceHeroWalterImages(html);
+  html = enforceHeroBackgroundImage(html);
   html = await maybeConvertImagesToWebpAndRewrite(html);
 
   const htmlMin = await minifyHtml(html, {
