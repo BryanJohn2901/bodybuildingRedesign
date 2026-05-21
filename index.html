@@ -96,6 +96,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             will-change: transform;
         }
 
+        @media (max-width: 767px) {
+            .professors-marquee { overflow-x: auto !important; overflow-y: hidden !important; scroll-snap-type: x mandatory; cursor: default; touch-action: auto; -webkit-overflow-scrolling: touch; }
+            .professors-marquee.dragging { cursor: default; }
+            .professors-track { transform: none !important; }
+            #professors-track > [aria-hidden="true"] { display: none; }
+            #professors-track > [data-professors-group] { padding-left: 0 !important; padding-right: 0 !important; gap: 8px !important; }
+            #professors-track > [data-professors-group] > img { scroll-snap-align: start; width: calc(50vw - 6px) !important; max-width: calc(50vw - 6px) !important; height: auto !important; flex-shrink: 0; }
+            #professors-track > [data-professors-group] > div { scroll-snap-align: start; width: calc(50vw - 6px) !important; max-width: calc(50vw - 6px) !important; height: auto !important; flex-shrink: 0; }
+            #professors-track > [data-professors-group] > div img { width: 100% !important; max-width: 100% !important; height: auto !important; }
+        }
+
         .cookie-banner-enter {
             opacity: 0;
             transform: translateY(16px);
@@ -471,45 +482,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div id="professors-track" class="professors-track flex w-max">
                 
                 <div class="flex gap-8 px-4 shrink-0 items-center" data-professors-group>
-                    <img src="./img/modulos/2.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 1">
-                    <img src="./img/modulos/3.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 2">
-                    <img src="./img/modulos/4.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 3">
-                    <img src="./img/modulos/5.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 4">
-                    <img src="./img/modulos/6.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 5">
-                    <img src="./img/modulos/7.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 6">
-                    <img src="./img/modulos/8.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 7">
-                    <img src="./img/modulos/9.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 8">
-                    <img src="./img/modulos/10.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 9">
-                    <img src="./img/modulos/11.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 10">
-                    <img src="./img/modulos/12.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 11">
-                    <img src="./img/modulos/13.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 12">
-                    <img src="./img/modulos/14.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 13">
-                    <img src="./img/modulos/15.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 14">
-                    <img src="./img/modulos/16.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 15">
-                    <img src="./img/modulos/17.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 16">
-                    <img src="./img/modulos/18.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 17">
-                    <img src="./img/modulos/19.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 18">
+                    <img src="./img/modulos/2.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 1">
+                    <img src="./img/modulos/3.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 2">
+                    <img src="./img/modulos/4.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 3">
+                    <img src="./img/modulos/5.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 4">
+                    <img src="./img/modulos/6.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 5">
+                    <img src="./img/modulos/7.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 6">
+                    <img src="./img/modulos/8.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 7">
+                    <img src="./img/modulos/9.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 8">
+                    <img src="./img/modulos/10.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 9">
+                    <img src="./img/modulos/11.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 10">
+                    <img src="./img/modulos/12.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 11">
+                    <img src="./img/modulos/13.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 12">
+                    <img src="./img/modulos/14.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 13">
+                    <img src="./img/modulos/15.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 14">
+                    <img src="./img/modulos/16.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 15">
+                    <img src="./img/modulos/17.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 16">
+                    <img src="./img/modulos/18.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 17">
+                    <img src="./img/modulos/19.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 18">
                 </div>
                 
                 <div class="flex gap-8 px-4 shrink-0 items-center" aria-hidden="true">
-                    <img src="./img/modulos/2.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 1">
-                    <img src="./img/modulos/3.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 2">
-                    <img src="./img/modulos/4.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 3">
-                    <img src="./img/modulos/5.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 4">
-                    <img src="./img/modulos/6.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 5">
-                    <img src="./img/modulos/7.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 6">
-                    <img src="./img/modulos/8.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 7">
-                    <img src="./img/modulos/9.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 8">
-                    <img src="./img/modulos/10.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 9">
-                    <img src="./img/modulos/11.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 10">
-                    <img src="./img/modulos/12.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 11">
-                    <img src="./img/modulos/13.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 12">
-                    <img src="./img/modulos/14.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 13">
-                    <img src="./img/modulos/15.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 14">
-                    <img src="./img/modulos/16.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 15">
-                    <img src="./img/modulos/17.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 16">
-                    <img src="./img/modulos/18.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 17">
-                    <img src="./img/modulos/19.jpg" class="h-[460px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 18">
+                    <img src="./img/modulos/2.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 1">
+                    <img src="./img/modulos/3.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 2">
+                    <img src="./img/modulos/4.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 3">
+                    <img src="./img/modulos/5.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 4">
+                    <img src="./img/modulos/6.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 5">
+                    <img src="./img/modulos/7.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 6">
+                    <img src="./img/modulos/8.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 7">
+                    <img src="./img/modulos/9.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 8">
+                    <img src="./img/modulos/10.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 9">
+                    <img src="./img/modulos/11.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 10">
+                    <img src="./img/modulos/12.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 11">
+                    <img src="./img/modulos/13.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 12">
+                    <img src="./img/modulos/14.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 13">
+                    <img src="./img/modulos/15.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 14">
+                    <img src="./img/modulos/16.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 15">
+                    <img src="./img/modulos/17.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 16">
+                    <img src="./img/modulos/18.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 17">
+                    <img src="./img/modulos/19.jpg" class="h-[480px] w-auto object-contain shrink-0 glass-panel p-2 rounded-2xl shadow-lg hover:scale-105 transition-transform" alt="Professor 18">
                 </div>
             </div>
         </div>
@@ -837,119 +848,72 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             console.warn("AOS não carregado.");
         }
 
-        const professorsMarquee = document.getElementById('professors-marquee');
-        const professorsTrack = document.getElementById('professors-track');
-        const professorsGroup = professorsTrack?.querySelector('[data-professors-group]');
+        (function () {
+            var marquee = document.getElementById('professors-marquee');
+            var track = document.getElementById('professors-track');
+            var group = track && track.querySelector('[data-professors-group]');
+            if (!marquee || !track || !group) return;
+            var AUTO_SPEED = 96, MOBILE_INTERVAL = 3000, MOBILE_BP = 768;
+            var currentX = 0, groupWidth = 0, lastTs = 0;
+            var isDragging = false, isHovered = false;
+            var dragStartX = 0, dragStartTrackX = 0;
+            var rafId = null, mobileTimer = null;
+            var mobileIdx = 0, mobileItems = [];
+            var isMobile = window.innerWidth < MOBILE_BP;
 
-        if (professorsMarquee && professorsTrack && professorsGroup) {
-            let currentX = 0;
-            let groupWidth = 0;
-            let lastTimestamp = 0;
-            let autoSpeed = 96;
-            let isDragging = false;
-            let dragStartPointerX = 0;
-            let dragStartTrackX = 0;
-            let resumeTimeout = null;
-            let animationFrameId = null;
+            function wrap() { while (currentX <= -groupWidth) currentX += groupWidth; while (currentX > 0) currentX -= groupWidth; }
+            function render() { wrap(); track.style.transform = 'translate3d(' + currentX + 'px,0,0)'; }
+            function measure() { groupWidth = group.offsetWidth; render(); }
 
-            const wrapPosition = () => {
-                if (groupWidth <= 0) return;
+            function startDrag(cx) { isDragging = true; dragStartX = cx; dragStartTrackX = currentX; marquee.classList.add('dragging'); }
+            function moveDrag(cx) { if (!isDragging) return; currentX = dragStartTrackX + (cx - dragStartX); render(); }
+            function endDrag() { if (!isDragging) return; isDragging = false; marquee.classList.remove('dragging'); }
 
-                while (currentX <= -groupWidth) currentX += groupWidth;
-                while (currentX > 0) currentX -= groupWidth;
-            };
-
-            const renderTrack = () => {
-                wrapPosition();
-                professorsTrack.style.transform = `translate3d(${currentX}px, 0, 0)`;
-            };
-
-            const measureTrack = () => {
-                groupWidth = professorsGroup.offsetWidth;
-                renderTrack();
-            };
-
-            const pauseAndResumeAuto = () => {
-                window.clearTimeout(resumeTimeout);
-                autoSpeed = 0;
-                resumeTimeout = window.setTimeout(() => {
-                    autoSpeed = 96;
-                }, 1000);
-            };
-
-            const animateTrack = timestamp => {
-                if (!lastTimestamp) lastTimestamp = timestamp;
-                const deltaSeconds = (timestamp - lastTimestamp) / 1000;
-                lastTimestamp = timestamp;
-
-                if (!isDragging && groupWidth > 0) {
-                    currentX -= autoSpeed * deltaSeconds;
-                    renderTrack();
+            function tick(ts) {
+                if (!isMobile && !isDragging && !isHovered && groupWidth > 0) {
+                    if (lastTs > 0) { currentX -= AUTO_SPEED * (ts - lastTs) / 1000; render(); }
                 }
+                lastTs = ts;
+                rafId = requestAnimationFrame(tick);
+            }
 
-                animationFrameId = window.requestAnimationFrame(animateTrack);
-            };
+            function scrollToMobileItem(idx) {
+                var el = mobileItems[idx]; if (!el) return;
+                var cr = marquee.getBoundingClientRect(), er = el.getBoundingClientRect();
+                var targetLeft = Math.round(er.left - cr.left + marquee.scrollLeft);
+                if (targetLeft <= marquee.scrollLeft) { marquee.scrollLeft = targetLeft; } else { marquee.scrollTo({ left: targetLeft, behavior: 'smooth' }); }
+            }
 
-            const startDrag = clientX => {
-                isDragging = true;
-                dragStartPointerX = clientX;
-                dragStartTrackX = currentX;
-                autoSpeed = 0;
-                window.clearTimeout(resumeTimeout);
-                professorsMarquee.classList.add('dragging');
-            };
+            function startMobileAuto() {
+                clearInterval(mobileTimer);
+                mobileTimer = setInterval(function () {
+                    if (!isHovered) { mobileIdx = (mobileIdx + 2) % mobileItems.length; scrollToMobileItem(mobileIdx); }
+                }, MOBILE_INTERVAL);
+            }
 
-            const moveDrag = clientX => {
-                if (!isDragging) return;
-                currentX = dragStartTrackX + (clientX - dragStartPointerX);
-                renderTrack();
-            };
+            function setupDesktop() { isMobile = false; clearInterval(mobileTimer); lastTs = 0; measure(); }
+            function setupMobile() { isMobile = true; track.style.transform = 'none'; mobileItems = Array.from(group.children); mobileIdx = 0; marquee.scrollLeft = 0; startMobileAuto(); }
 
-            const endDrag = () => {
-                if (!isDragging) return;
-                isDragging = false;
-                professorsMarquee.classList.remove('dragging');
-                pauseAndResumeAuto();
-            };
-
-            professorsMarquee.addEventListener('mousedown', e => {
-                startDrag(e.clientX);
+            marquee.addEventListener('mouseenter', function () { isHovered = true; });
+            marquee.addEventListener('mouseleave', function () { isHovered = false; endDrag(); });
+            marquee.addEventListener('mousedown', function (e) { if (!isMobile) startDrag(e.clientX); });
+            window.addEventListener('mousemove', function (e) { if (!isMobile) moveDrag(e.clientX); });
+            window.addEventListener('mouseup', function () { if (!isMobile) endDrag(); });
+            marquee.addEventListener('touchstart', function (e) { if (e.touches.length === 1 && !isMobile) startDrag(e.touches[0].clientX); }, { passive: true });
+            marquee.addEventListener('touchmove', function (e) { if (e.touches.length === 1 && !isMobile) moveDrag(e.touches[0].clientX); }, { passive: true });
+            marquee.addEventListener('touchend', function () { if (!isMobile) endDrag(); });
+            marquee.addEventListener('wheel', function (e) { if (!isMobile) { currentX -= e.deltaX || e.deltaY; render(); } }, { passive: true });
+            marquee.addEventListener('dragstart', function (e) { e.preventDefault(); });
+            window.addEventListener('resize', function () {
+                var nowMobile = window.innerWidth < MOBILE_BP;
+                if (nowMobile !== isMobile) { if (nowMobile) setupMobile(); else setupDesktop(); }
+                else if (!isMobile) measure();
             });
 
-            window.addEventListener('mousemove', e => {
-                moveDrag(e.clientX);
-            });
-
-            window.addEventListener('mouseup', endDrag);
-            professorsMarquee.addEventListener('mouseleave', endDrag);
-
-            professorsMarquee.addEventListener('touchstart', e => {
-                if (e.touches.length === 1) startDrag(e.touches[0].clientX);
-            }, { passive: true });
-
-            professorsMarquee.addEventListener('touchmove', e => {
-                if (e.touches.length === 1) moveDrag(e.touches[0].clientX);
-            }, { passive: true });
-
-            professorsMarquee.addEventListener('touchend', endDrag);
-
-            professorsMarquee.addEventListener('wheel', e => {
-                currentX -= e.deltaX || e.deltaY;
-                renderTrack();
-                pauseAndResumeAuto();
-            }, { passive: true });
-
-            professorsMarquee.addEventListener('dragstart', e => e.preventDefault());
-            window.addEventListener('resize', measureTrack);
-
-            measureTrack();
-            animationFrameId = window.requestAnimationFrame(animateTrack);
-
-            window.addEventListener('beforeunload', () => {
-                if (animationFrameId) window.cancelAnimationFrame(animationFrameId);
-                window.clearTimeout(resumeTimeout);
-            });
-        }
+            if (isMobile) setupMobile(); else setupDesktop();
+            rafId = requestAnimationFrame(tick);
+            window.addEventListener('beforeunload', function () { cancelAnimationFrame(rafId); clearInterval(mobileTimer); });
+        })();
 
         const phoneInput = document.getElementById('lead-phone');
         if (phoneInput) {
@@ -1092,13 +1056,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 btn.disabled = true;
                 btn.innerHTML = '<i class="fas fa-spinner animate-spin"></i> PROCESSANDO...';
 
-                const nomeVal = document.getElementById('lead-nome').value.trim();
-                const emailVal = document.getElementById('lead-email').value.trim().toLowerCase();
+                const nome = document.getElementById('lead-nome').value.trim();
+                const email = document.getElementById('lead-email').value.trim().toLowerCase();
                 let telefone = rawPhone;
                 telefone = '+55' + telefone;
                 const payload = {
-                    nome: nomeVal,
-                    email: emailVal,
+                    nome: nome,
+                    email: email,
                     telefone: telefone,
                     utm_source: document.getElementById('utm_source')?.value || '',
                     utm_term: document.getElementById('utm_term')?.value || '',
@@ -1111,10 +1075,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 const destino = REDIRECT_URL;
 
                 try {
-                    await fetch(WEBHOOK_URL, {
+                    const webhookUrl = new URL(WEBHOOK_URL);
+                    webhookUrl.searchParams.set('nome', payload.nome);
+                    webhookUrl.searchParams.set('email', payload.email);
+                    webhookUrl.searchParams.set('telefone', payload.telefone);
+                    webhookUrl.searchParams.set('utm_source', payload.utm_source);
+                    webhookUrl.searchParams.set('utm_term', payload.utm_term);
+                    webhookUrl.searchParams.set('utm_campaign', payload.utm_campaign);
+                    webhookUrl.searchParams.set('utm_medium', payload.utm_medium);
+                    webhookUrl.searchParams.set('utm_content', payload.utm_content);
+                    webhookUrl.searchParams.set('url', payload.url);
+
+                    await fetch(webhookUrl.toString(), {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
+                        mode: 'no-cors',
+                        keepalive: true
                     });
                 } catch (error) {
                     console.error("Erro no Webhook, executando fallback de redirecionamento.");
