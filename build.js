@@ -16,7 +16,7 @@ const DIST_IMG = path.join(DIST_ASSETS, 'img');
 const SRC_HTML = path.join(ROOT, 'index.html');
 const SRC_IMG = path.join(ROOT, 'img');
 
-const CANONICAL_URL = 'https://pos.personaltraineracademy.com.br/';
+const CANONICAL_URL = 'https://pos.personaltraineracademy.com.br/bodybuilding';
 
 function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
@@ -64,10 +64,11 @@ function normalizeAssetRefs(html) {
   // Saída final usa dist/assets/img para imagens locais do projeto.
   let out = html;
   out = out.replace(/(src|href)=(["'])\.?\/?assets\//g, '$1=$2assets/img/');
-  out = out.replace(/(srcset)=["']\.?\/?assets\//g, '$1="assets/img/');
+  out = out.replace(/(srcset)=(["'])\.?\/?assets\//g, '$1=$2assets/img/');
   out = out.replace(/url\((["']?)\.?\/?assets\//g, 'url($1assets/img/');
-  out = out.replace(/(src|href)=(["'])img\//g, '$1=$2assets/img/');
-  out = out.replace(/url\((["']?)img\//g, 'url($1assets/img/');
+  out = out.replace(/(src|href)=(["'])\.?\/?img\//g, '$1=$2assets/img/');
+  out = out.replace(/(srcset)=(["'])\.?\/?img\//g, '$1=$2assets/img/');
+  out = out.replace(/url\((["']?)\.?\/?img\//g, 'url($1assets/img/');
   return out;
 }
 
@@ -182,6 +183,15 @@ async function run() {
     html = html.replace('</body>', '<script src="js/main.js" defer></script></body>');
   }
 
+  // Evitar AOS bloqueante no dist
+  html = html.replace(
+    /<script([^>]*src=["']https:\/\/unpkg\.com\/aos@[^"']+["'][^>]*)><\/script>/gi,
+    (full, attrs) => {
+      if (/\bdefer\b/i.test(attrs)) return full;
+      return `<script${attrs} defer></script>`;
+    }
+  );
+
   // Atualiza caminho de CSS para build final.
   html = html.replace(/<link[^>]+href=["'][^"']*output\.css[^"']*["'][^>]*>/i, '');
   html = ensureHeadTag(html, /href=["']css\/style\.css["']/i, '<link rel="stylesheet" href="css/style.css">');
@@ -192,7 +202,7 @@ async function run() {
   const description = descMatch
     ? descMatch[1]
     : 'Pós-graduação em Bodybuilding e Estética Corporal reconhecida pelo MEC.';
-  const ogImage = `${CANONICAL_URL}assets/img/og-image.webp`;
+  const ogImage = 'https://pos.personaltraineracademy.com.br/bodybuilding/assets/img/og-image.webp';
 
   html = ensureHeadTag(
     html,
