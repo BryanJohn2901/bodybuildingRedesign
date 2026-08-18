@@ -85,6 +85,8 @@
     "terser": "^5.49.0"
   },
   "scripts": {
+    "build": "node build.js",
+    "build:css": "tailwindcss -i src/input.css -o output.css --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

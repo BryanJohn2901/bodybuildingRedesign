@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 const { minify: minifyHtml } = require('html-minifier-terser');
 const { minify: minifyJs } = require('terser');
@@ -15,6 +16,8 @@ const DIST_IMG = path.join(DIST_ASSETS, 'img');
 
 const SRC_HTML = path.join(ROOT, 'index.html');
 const SRC_IMG = path.join(ROOT, 'img');
+const SRC_INPUT_CSS = path.join(ROOT, 'src', 'input.css');
+const SRC_OUTPUT_CSS = path.join(ROOT, 'output.css');
 
 const CANONICAL_URL = 'https://pos.personaltraineracademy.com.br/bodybuilding';
 
@@ -124,14 +127,8 @@ async function maybeConvertImagesToWebpAndRewrite(html) {
 }
 
 function enforceHeroWalterImages(html) {
-  // Garante que a hero no build use as mesmas imagens do desenvolvimento.
-  const heroDesktop = 'assets/img/WALTER.png';
-  const heroMobile = 'assets/img/WALTER20MOBILE.png';
-
-  return html.replace(
-    /<img([^>]*?)src=(["'])(?:\.\/)?assets\/img\/bgHero-[^"']+\.(?:webp|png|jpe?g)\2([^>]*?)>/i,
-    `<picture><source media="(max-width: 768px)" srcset="${heroMobile}"><img$1src="${heroDesktop}"$3></picture>`
-  );
+  // Hero usa o pattern bgHero; não força mais fotos do Walter.
+  return html;
 }
 
 async function run() {
@@ -146,24 +143,35 @@ async function run() {
 
   copyRecursive(SRC_IMG, DIST_IMG);
 
+  // Compila Tailwind localmente (sem CDN) para preview/dist funcionar offline.
+  execSync(`npx tailwindcss -i "${SRC_INPUT_CSS}" -o "${SRC_OUTPUT_CSS}" --minify`, {
+    stdio: 'inherit',
+    cwd: ROOT,
+  });
+  execSync(`npx tailwindcss -i "${SRC_INPUT_CSS}" -o "${path.join(DIST_CSS, 'style.css')}" --minify`, {
+    stdio: 'inherit',
+    cwd: ROOT,
+  });
+  const compiledCss = readText(path.join(DIST_CSS, 'style.css'));
+  const minCss = new CleanCSS({ level: 2 }).minify(compiledCss).styles || compiledCss;
+  writeText(path.join(DIST_CSS, 'style.css'), minCss);
+
   let html = readText(SRC_HTML);
 
-  // Extrai CSS inline.
-  let inlineCss = '';
-  html = html.replace(/<style>([\s\S]*?)<\/style>/gi, (_, css) => {
-    inlineCss += `${css}\n`;
-    return '';
-  });
+  // Remove CSS inline residual (estilos agora estão no Tailwind compilado).
+  html = html.replace(/<style>([\s\S]*?)<\/style>/gi, '');
 
-  const minCss = new CleanCSS({ level: 2 }).minify(inlineCss).styles || inlineCss;
-  writeText(path.join(DIST_CSS, 'style.css'), minCss);
+  // Remove Tailwind CDN + config (dist usa css/style.css).
+  html = html.replace(/<script[^>]*src=["']https:\/\/cdn\.tailwindcss\.com["'][^>]*>\s*<\/script>/gi, '');
+  html = html.replace(/<script(?![^>]*\ssrc=)[^>]*>\s*tailwind\.config\s*=[\s\S]*?<\/script>/gi, '');
+  html = html.replace(/<link[^>]+href=["']\.?\/?output\.css["'][^>]*>/i, '<link href="css/style.css" rel="stylesheet">');
 
   // Extrai scripts inline exceto blocos de terceiros e configuração do Tailwind CDN.
   let bundledJs = '';
   html = html.replace(/<script(?![^>]*\ssrc=)([^>]*)>([\s\S]*?)<\/script>/gi, (full, attrs, code) => {
     const scriptCode = String(code || '');
     const isThirdParty =
-      /googletagmanager|meta.*pixel|gtag\(|analytics|fbq\(/i.test(scriptCode);
+      /googletagmanager|meta.*pixel|gtag\(|analytics|fbq\(|window\.pulseq|pulseq\.push/i.test(scriptCode);
     const isTailwindConfig = /tailwind\.config/i.test(scriptCode);
 
     if (isThirdParty || isTailwindConfig) return full;
@@ -192,8 +200,7 @@ async function run() {
     }
   );
 
-  // Atualiza caminho de CSS para build final.
-  html = html.replace(/<link[^>]+href=["'][^"']*output\.css[^"']*["'][^>]*>/i, '');
+  // Garante link do CSS compilado no dist.
   html = ensureHeadTag(html, /href=["']css\/style\.css["']/i, '<link rel="stylesheet" href="css/style.css">');
 
   // SEO técnico e social.

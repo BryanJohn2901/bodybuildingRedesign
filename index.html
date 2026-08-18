@@ -7,7 +7,10 @@
     <title>Pós-Graduação em Bodybuilding e Estética Corporal</title>
     <meta name="description" content="Pós-graduação em Bodybuilding e Estética Corporal reconhecida pelo MEC. Metodologia prática, 18 meses, +4.000 alunos certificados.">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://hub-pta.vercel.app/api/tracking/pixel.js?via=pulse-proxy"></script>
+    <script>window.pulseq=window.pulseq||[];pulseq.push(["init","wesley-maciel-da41187","e4c02d017fae"]);</script>
+
+    <link href="./output.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,75 +18,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        title: ['Oswald', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            bg: '#050505',
-                            surface: '#121212',
-                            primary: '#DC2626',
-                            primaryHover: '#B91C1C',
-                            textPrimary: '#FFFFFF',
-                            textSecondary: '#9CA3AF',
-                            accent: '#991B1B'
-                        }
-                    },
-                    backgroundImage: {
-                        'mesh': "radial-gradient(at 0% 0%, rgba(220, 38, 38, 0.15) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(220, 38, 38, 0.05) 0px, transparent 50%)",
-                    },
-                    animation: {
-                        'shimmer': 'shimmer 1.5s infinite linear',
-                    },
-                    keyframes: {
-                        shimmer: {
-                            '100%': { transform: 'translateX(100%)' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body { background-color: #050505; color: white; overflow-x: hidden; }
-        
-        /* Glassmorphism Classes */
-        .glass-panel { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .glass-strong { background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        
-        /* Typography Styles */
-        .text-stroke { -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1); color: transparent; }
-        .group:hover .text-stroke { -webkit-text-stroke: 1px rgba(220, 38, 38, 0.4); }
-
-        /* Background Blobs */
-        .blob { position: absolute; width: 600px; height: 600px; background: rgba(220, 38, 38, 0.1); filter: blur(120px); border-radius: 50%; z-index: -1; pointer-events: none; }
-        
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #DC2626; border-radius: 10px; }
-
-        .professors-marquee {
-            cursor: grab;
-            user-select: none;
-            touch-action: pan-y;
-        }
-
-        .professors-marquee.dragging {
-            cursor: grabbing;
-        }
-
-        .professors-track {
-            will-change: transform;
-        }
-</style>
 </head>
 
 <body class="antialiased selection:bg-brand-primary selection:text-white overflow-x-hidden pb-24 sm:pb-20">
@@ -93,7 +27,7 @@
     <div class="blob bottom-[20%] left-[-20%]"></div>
 
     <nav class="fixed top-6 left-0 right-0 z-50 px-4 md:px-0 hidden md:block" data-aos="fade-down" data-aos-duration="1000"> 
-        <div class="container mx-auto max-w-5xl"> 
+        <div class="container mx-auto max-w-[1300px]"> 
             <div class="relative flex items-center justify-between px-6 py-3 rounded-full glass-strong shadow-[0_8px_32px_0_rgba(0,0,0,0.8)] transition-all duration-300 hover:border-brand-primary/40 hover:shadow-[0_12px_40px_0_rgba(220,38,38,0.15)]"> 
                 
                 <a href="#" class="block hover:opacity-80 transition-opacity duration-300 flex items-center shrink-0"> 
@@ -129,43 +63,48 @@
         </div> 
     </nav>
 
-    <section class="relative min-h-screen pt-32 pb-20 flex items-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="./img/WALTER20MOBILE.png" alt="Background Hero Mobile" class="w-full h-full object-cover md:hidden">
-            <img src="./img/WALTER.png" alt="Background Hero" class="hidden md:block w-full h-full object-cover">
+    <section class="relative overflow-hidden bg-brand-bg md:min-h-screen md:pt-32 md:pb-20 md:flex md:items-center">
+        <div class="relative w-full md:absolute md:inset-0 md:z-0">
+            <picture class="block w-full">
+                <source media="(max-width: 767px)" srcset="./img/BB-MOBILE.webp" type="image/webp">
+                <img src="./img/BB-WEB.webp" alt="" class="block w-full h-auto object-cover object-top md:absolute md:inset-0 md:h-full md:object-right md:object-center" aria-hidden="true">
+            </picture>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 h-36 sm:h-44 bg-gradient-to-t from-brand-bg from-[20%] via-brand-bg/80 to-transparent md:inset-0 md:h-auto md:bg-gradient-to-r md:from-brand-bg md:from-[28%] md:via-brand-bg/70 md:via-[48%] md:to-transparent"></div>
         </div>
 
-        <div class="container mx-auto px-6 grid lg:grid-cols-1 gap-12 items-center relative z-10">
-            <div class="space-y-6 max-w-3xl">
-                <div data-aos="fade-up" class="pt-2">
-                    <img src="./img/logo-D4D5a3rb.png" alt="Logo Bodybuilding" class="h-14 md:h-16 w-auto">
-                </div>
-                <div data-aos="fade-up" class="inline-flex items-center gap-2 px-3 py-1 rounded border border-brand-primary/30 bg-brand-primary/10 text-brand-primary font-title text-sm font-bold uppercase tracking-widest backdrop-blur-md">
-                    <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span> Reconhecida pelo MEC
-                </div>
+        <div class="relative z-10 bg-brand-bg pt-6 pb-16 md:mt-0 md:w-full md:bg-transparent md:pt-0 md:pb-0">
+            <div class="container mx-auto max-w-[1300px] px-6 grid lg:grid-cols-1 gap-12 items-center">
+                <div class="space-y-6 max-w-xl xl:max-w-2xl max-md:mx-auto max-md:flex max-md:flex-col max-md:items-center max-md:text-center">
+                    <div data-aos="fade-up" class="pt-2">
+                        <img src="./img/logo-D4D5a3rb.png" alt="Logo Bodybuilding" class="h-14 md:h-16 w-auto">
+                    </div>
+                    <div data-aos="fade-up" class="inline-flex items-center gap-2 px-3 py-1 rounded border border-brand-primary/30 bg-brand-primary/10 text-brand-primary font-title text-sm font-bold uppercase tracking-widest backdrop-blur-md">
+                        <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span> Reconhecida pelo MEC
+                    </div>
 
-                <h1 data-aos="fade-up" data-aos-delay="100" class="font-title text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[1.1] text-white drop-shadow-2xl">
-                    Bodybuilding e <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-red-400 drop-shadow-none">Estética Corporal</span>
-                </h1>
+                    <h1 data-aos="fade-up" data-aos-delay="100" class="font-title text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[1.1] text-white drop-shadow-2xl text-left max-md:text-center">
+                        Bodybuilding e <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-red-400 drop-shadow-none">Estética Corporal</span>
+                    </h1>
 
-                <p data-aos="fade-up" data-aos-delay="200" class="text-lg text-gray-300 max-w-lg leading-relaxed">
-                    Descubra e aplique protocolos avançados de treinamento e gere grandes resultados estéticos no shape de seus atletas ou alunos de musculação.
-                </p>
+                    <p data-aos="fade-up" data-aos-delay="200" class="text-lg text-gray-300 max-w-lg leading-relaxed text-left max-md:text-center">
+                        Descubra e aplique protocolos avançados de treinamento e gere grandes resultados estéticos no shape de seus atletas ou alunos de musculação.
+                    </p>
 
-                <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row gap-6 pt-4 items-center sm:items-start">
-                    <button onclick="toggleLeadModal()" class="w-full sm:w-auto bg-brand-textPrimary text-brand-bg font-title font-bold text-lg uppercase py-4 px-8 rounded-xl hover:bg-gray-200 transition-all flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105">
-                        Matricule-se <i class="fas fa-arrow-right text-brand-primary"></i>
-                    </button>
-                    <div class="flex items-center gap-4 bg-white/5 border border-white/10 rounded-full px-6 py-2 backdrop-blur-sm">
-                        <div class="flex -space-x-3">
-                            <img src="./img/32-D4BwYog9.jpg" class="w-10 h-10 rounded-full border-2 border-brand-bg object-cover">
-                            <img src="./img/44-DCBA6-oR.jpg" class="w-10 h-10 rounded-full border-2 border-brand-bg object-cover">
-                            <img src="./img/85-DbvuHfe5.jpg" class="w-10 h-10 rounded-full border-2 border-brand-bg object-cover">
+                    <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row gap-6 pt-4 items-start max-md:items-center max-md:w-full">
+                        <button onclick="toggleLeadModal()" class="bg-brand-textPrimary text-brand-bg font-title font-bold text-lg uppercase py-4 px-8 rounded-xl hover:bg-gray-200 transition-all flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105 max-md:w-full">
+                            Matricule-se <i class="fas fa-arrow-right text-brand-primary"></i>
+                        </button>
+                        <div class="flex items-center gap-4 bg-white/5 border border-white/10 rounded-full px-6 py-2 backdrop-blur-sm">
+                            <div class="flex -space-x-3">
+                                <img src="./img/32-D4BwYog9.jpg" class="w-10 h-10 rounded-full border-2 border-brand-bg object-cover">
+                                <img src="./img/44-DCBA6-oR.jpg" class="w-10 h-10 rounded-full border-2 border-brand-bg object-cover">
+                                <img src="./img/85-DbvuHfe5.jpg" class="w-10 h-10 rounded-full border-2 border-brand-bg object-cover">
+                            </div>
+                            <p class="text-xs text-gray-300 font-medium text-left">
+                                <strong class="text-white block text-sm font-title tracking-wider">+4.000 Alunos</strong> Certificados
+                            </p>
                         </div>
-                        <p class="text-xs text-gray-300 font-medium">
-                            <strong class="text-white block text-sm font-title tracking-wider">+4.000 Alunos</strong> Certificados
-                        </p>
                     </div>
                 </div>
             </div>
@@ -294,7 +233,7 @@
                 <h3 class="font-title text-3xl md:text-4xl font-bold text-white uppercase">Uma Pós-graduação feita para profissionais...</h3>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-6 max-w-[1300px] mx-auto">
                 <div class="glass-panel p-6 rounded-2xl flex gap-6 hover:border-brand-primary/40 transition group" data-aos="fade-up">
                     <div class="shrink-0 w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary group-hover:bg-brand-primary group-hover:text-white group-hover:shadow-[0_0_15px_rgba(220,38,38,0.5)] transition">
                         <i class="fas fa-brain text-xl"></i>
@@ -419,14 +358,6 @@
                         <p class="text-gray-400 text-sm">Formação Completa + Bônus Exclusivos</p>
                     </div>
     
-                    <div class="text-center mb-10 relative z-10">
-                        <p class="font-title text-gray-400 text-sm font-medium uppercase tracking-widest mb-1">18x de</p>
-                        <div class="flex justify-center items-start gap-1">
-                            <span class="font-title text-xl font-bold text-brand-primary mt-2">R$</span>
-                            <span class="font-title text-6xl font-bold text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">229</span>
-                        </div>
-                    </div>
-
                     <ul class="space-y-4 mb-10 relative z-10">
                         <li class="flex items-center gap-4 text-sm text-gray-300">
                             <div class="w-6 h-6 rounded-full bg-brand-primary/20 flex items-center justify-center shrink-0">
@@ -475,7 +406,7 @@
                 <p class="mt-4 text-gray-400">Condições especiais e materiais complementares para acelerar seus resultados.</p>
             </div>
     
-            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 lg:gap-8">
+            <div class="max-w-[1300px] mx-auto grid md:grid-cols-2 gap-6 lg:gap-8">
                 
                 <div class="glass-panel p-8 rounded-3xl relative overflow-hidden group hover:border-brand-primary/50 transition-all duration-500 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="0">
                     <div class="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -550,9 +481,6 @@
                         </span>
                         <h3 class="font-title text-2xl md:text-3xl font-bold text-white uppercase mb-4">E-MEC da Pós Graduação</h3>
                         <p class="text-gray-300 mb-8 text-sm md:text-base">Consulte o cadastro oficial da pós-graduação no sistema do MEC.</p>
-                        <a href="https://emec.mec.gov.br/emec/consulta-cadastro/detalhamento/d96957f455f6405d14c6542552b0f6eb/MTM2NDg=/93916316abe23148507bd4c260e4b878/MzQwMzcw" target="_blank" class="font-title inline-flex items-center gap-2 bg-white text-black font-bold uppercase text-sm py-4 px-8 rounded-full hover:bg-gray-200 hover:scale-105 transition shadow-[0_0_25px_rgba(255,255,255,0.2)]">
-                            Ver no E-MEC <i class="fas fa-external-link-alt"></i>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -564,15 +492,6 @@
             <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="font-title text-brand-primary font-bold uppercase tracking-widest text-sm mb-2 drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]">F.A.Q.</h2>
                 <h3 class="font-title text-3xl md:text-5xl font-bold text-white uppercase mb-8">Perguntas Frequentes</h3>
-                
-                <div class="glass-panel p-6 rounded-2xl inline-flex flex-col md:flex-row items-center gap-6 mx-auto mb-10">
-                    <p class="text-gray-300 text-sm md:text-base max-w-md text-center md:text-left">
-                        Ficou com mais alguma dúvida? Tire rapidamente pelo WhatsApp da nossa equipe!
-                    </p>
-                    <a href="https://wa.me/554195872098" target="_blank" class="font-title bg-[#25D366] text-white font-bold uppercase text-sm py-4 px-8 rounded-full hover:bg-[#128C7E] transition flex items-center gap-2 shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:scale-105">
-                        <i class="fab fa-whatsapp text-xl"></i> Tirar Dúvidas
-                    </a>
-                </div>
             </div>
 
             <div class="space-y-4">
@@ -584,7 +503,7 @@
                     <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed border-t border-white/5 pt-4">
                         <p class="mb-2">Você pode pagar com qualquer cartão, boleto ou PIX.</p>
                         <p class="mb-2">Se você optar pelo pagamento com cartão de crédito recorrente, você precisa ter apenas limite suficiente para o pagamento da primeira mensalidade.</p>
-                        <p>Caso queira parcelar o pagamento via boleto bancário, você pode entrar em contato com nossa equipe comercial, é só clicar no botão verde de tirar dúvidas que iremos te ajudar!</p>
+                        <p>Caso queira parcelar o pagamento via boleto bancário, você pode entrar em contato com nossa equipe comercial pelo WhatsApp.</p>
                     </div>
                 </details>
                 <details class="group glass-panel rounded-2xl overflow-hidden transition-all duration-300 open:border-brand-primary/50" data-aos="fade-up" data-aos-delay="50">
@@ -762,11 +681,13 @@
             }).join('');
         }
 
-        if (typeof AOS !== 'undefined') {
-            AOS.init({ once: true, offset: 50, duration: 800 });
-        } else {
-            console.warn("AOS não carregado.");
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ once: true, offset: 50, duration: 800 });
+            } else {
+                console.warn("AOS não carregado.");
+            }
+        });
 
         const professorsMarquee = document.getElementById('professors-marquee');
         const professorsTrack = document.getElementById('professors-track');
